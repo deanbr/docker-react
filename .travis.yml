@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t deanbr/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run deanbr/docker-react npm run test -- --coverage
